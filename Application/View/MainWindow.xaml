@@ -5,27 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:ViewModel;assembly=ViewModel"
         mc:Ignorable="d"
-        Title="Moving balls!" Height="800" Width="1000">
+        Title="Moving balls" Height="800" Width="1000">
     <Window.DataContext>
         <vm:MainWindowViewModel />
     </Window.DataContext>
     <StackPanel Orientation="Vertical">
 
         <Canvas>
-            <!-- Pole do wpisania-->
-            <TextBox Canvas.Left="250" Canvas.Top="100" TextAlignment="Left" FontSize="20" Height="30" Width="100" Text="{Binding Text}"/>
+            <!-- Input number-->
+            <TextBox Canvas.Left="200" Canvas.Top="100" TextAlignment="Left" FontSize="30" Height="60" Width="130" Text="{Binding Text}"/>
 
-            <!-- Przycisk do startowania-->
-            <Button Canvas.Left="400" Canvas.Top="100" Height="30" Width="100" Content="Start" Command="{Binding StartClick}"/>
+            <!-- Start button-->
+            <Button Canvas.Left="440" Canvas.Top="100" Height="60" Width="130" Content="Start" Command="{Binding StartClick}"/>
 
-            <!-- Przycisk do konczenia-->
-            <Button Canvas.Left="550" Canvas.Top="100" Height="30" Width="100" Content="Stop" Command="{Binding StopClick}"/>
+            <!-- Stop button-->
+            <Button Canvas.Right="200" Canvas.Top="100" Height="60" Width="130" Content="Stop" Command="{Binding StopClick}"/>
 
             <Canvas Canvas.Left="100" Canvas.Top="200" Height='{Binding Height}' Width='{Binding Width}'>
-                <!-- Prostokat-->
-                <Rectangle Canvas.Left="13" Canvas.Top="13" Height='{Binding Height}' Width='{Binding Width}' StrokeThickness="4" Stroke="Blue"/>
+                <!-- Rectangle-->
+                <Rectangle Canvas.Left="13" Canvas.Top="13" Height='{Binding Height}' Width='{Binding Width}' StrokeThickness="6" Fill="DarkGreen" Stroke="CadetBlue"/>
 
-                <!-- pilki -->
+                <!-- Files -->
                 <ItemsControl ItemsSource="{Binding Balls, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
@@ -40,7 +40,8 @@
                     </ItemsControl.ItemContainerStyle>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Ellipse Width="{Binding Diameter}" Height='{Binding Diameter}' Fill="Blue"/>
+                            <!-- Balls -->
+                            <Ellipse Width="{Binding Diameter}" Height='{Binding Diameter}' StrokeThickness="4" Stroke="MediumVioletRed" Fill="PaleVioletRed"/>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>

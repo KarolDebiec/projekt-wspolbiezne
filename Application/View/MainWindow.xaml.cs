@@ -12,6 +12,6 @@ namespace TP.ConcurrentProgramming.PresentationView
         {
             InitializeComponent();
         }
+    }
         
-}
 }
