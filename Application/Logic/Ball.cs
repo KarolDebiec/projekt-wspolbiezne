@@ -16,7 +16,7 @@ namespace Logic
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected virtual void RaisePropertyChanged([CallerMemberName] string propertyName = "")
+        protected virtual void RaisePropertyChanged([CallerMemberName] string propertyName = null)
         {
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
@@ -35,8 +35,8 @@ namespace Logic
         {
             currentVector.X = x;
             currentVector.Y = y;
-            this.radius = radius;
             this.speed = speed;
+            this.radius = radius;
             System.Random random = new System.Random();
             int edge = random.Next(1, 5);// 4 - down, 1 - right, 3 - up, 2 - left
             if (edge == 1)
@@ -93,21 +93,20 @@ namespace Logic
             }
             else
                 destinationWall = edge + wall;
-            float XCoordinate;
-            float YCoordinate;
+            float xCoordinate;
+            float yCoordinate;
             if (destinationWall < 3)
             {
-                YCoordinate = random.Next(radius, Storage.height - radius);
-                XCoordinate = (destinationWall % 2) * (Storage.width - 2 * radius) + radius;
+                yCoordinate = random.Next(radius, Storage.height - radius);
+                xCoordinate = (destinationWall % 2) * (Storage.width - 2 * radius) + radius;
             }
             else
             {
-                XCoordinate = random.Next(radius, Storage.width - radius);
-                YCoordinate = ((destinationWall - 2) % 2) * (Storage.height - 2 * radius) + radius;
+                xCoordinate = random.Next(radius, Storage.width - radius);
+                yCoordinate = ((destinationWall - 2) % 2) * (Storage.height - 2 * radius) + radius;
             }
-            destinationVector.X = XCoordinate;
-            destinationVector.Y = YCoordinate;
-            double howManyChanges = System.Math.Sqrt((System.Math.Pow(currentVector.X - destinationVector.X, 2) + System.Math.Pow(currentVector.Y - destinationVector.Y, 2))) / speed;
+            destinationVector.X = xCoordinate;
+            destinationVector.Y = yCoordinate;
 
         }
 
@@ -131,13 +130,13 @@ namespace Logic
             RaisePropertyChanged(nameof(Y));
         }
 
-        public Vector2 VectorCurrent
+        public Vector2 vectorCurrent
         {
             get => currentVector;
             set => currentVector = value;
         }
 
-        public Vector2 VectorDestination
+        public Vector2 vectorDestination
         {
             get => destinationVector;
             set => destinationVector = value;

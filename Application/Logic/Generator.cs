@@ -13,13 +13,13 @@ namespace Logic
 
         public Generator() { }
 
-        public void GeneratePos()
+        public void GeneratePos() //generates a random pos
         {
             this.X = generator.Next(2 + radius, Storage.width - radius - 2);
             this.Y = generator.Next(2 + radius, Storage.height - radius - 2);
         }
 
-        public Ball GenerateBall()
+        public Ball GenerateBall() //generates a random ball
         {
             GeneratePos();
             return new Ball(X, Y, Radius, Speed);

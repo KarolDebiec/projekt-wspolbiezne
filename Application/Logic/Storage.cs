@@ -32,7 +32,7 @@ namespace Logic
             balls.Remove(ball);
         }
 
-        public void CreateBalls(int number)
+        public void CreateBalls(int number) // generates multiple random balls
         {
             if (number > 0)
             {
@@ -47,7 +47,7 @@ namespace Logic
 
         }
 
-        public void StopBalls()
+        public void StopBalls() // releases all balls
         {
             if (tokenSource != null && !tokenSource.IsCancellationRequested)
             {
@@ -57,7 +57,7 @@ namespace Logic
             }
         }
 
-        public void Moving() // while its true the balls are moving
+        public void Moving() // iniciate moving procedure
         {
             foreach (Ball ball in balls)
             {
@@ -65,7 +65,7 @@ namespace Logic
                 {
                     while (true)
                     {
-                        Thread.Sleep(5);
+                        Thread.Sleep(5); //balls move every 5 milisecond
                         ball.UpdatePosition();
                         try { token.ThrowIfCancellationRequested(); }
                         catch (System.OperationCanceledException) { break; } //Rzuca OperationCanceledException jeżeli jest zgłoszone cancel.

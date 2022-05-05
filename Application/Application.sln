@@ -15,6 +15,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logic", "Logic\Logic.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "View", "View\View.csproj", "{EED657CD-2F57-4BF4-90B6-D8936D368D50}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicTest", "LogicTest\LogicTest.csproj", "{5BAACEBA-FA6D-45FD-8BB3-B0DE7CCD1B88}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTest", "DataTest\DataTest.csproj", "{092518A5-6BC9-4F56-B6E7-71C233CAAB77}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +45,14 @@ Global
 		{EED657CD-2F57-4BF4-90B6-D8936D368D50}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EED657CD-2F57-4BF4-90B6-D8936D368D50}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EED657CD-2F57-4BF4-90B6-D8936D368D50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BAACEBA-FA6D-45FD-8BB3-B0DE7CCD1B88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BAACEBA-FA6D-45FD-8BB3-B0DE7CCD1B88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BAACEBA-FA6D-45FD-8BB3-B0DE7CCD1B88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BAACEBA-FA6D-45FD-8BB3-B0DE7CCD1B88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{092518A5-6BC9-4F56-B6E7-71C233CAAB77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{092518A5-6BC9-4F56-B6E7-71C233CAAB77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{092518A5-6BC9-4F56-B6E7-71C233CAAB77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{092518A5-6BC9-4F56-B6E7-71C233CAAB77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
