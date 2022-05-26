@@ -1,12 +1,11 @@
 ﻿using System;
 using NUnit.Framework;
-using Data;
+using Logic;
 using System.Numerics;
 
 namespace LogicTest
 {
-    class BallTest
+    class LogicApiTest
     {
-        
     }
 }

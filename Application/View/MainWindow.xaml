@@ -1,51 +1,52 @@
-﻿<Window x:Class="TP.ConcurrentProgramming.PresentationView.MainWindow"
+﻿<Window x:Class="View.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:vm="clr-namespace:ViewModel;assembly=ViewModel"
+        xmlns:vm1="clr-namespace:ViewModel;assembly=ViewModel"
         mc:Ignorable="d"
-        Title="Moving balls" Height="800" Width="1000">
+        Title="Kulki Wspolbiezne" 
+        Height="1024" 
+        Width="1600"
+        >
     <Window.DataContext>
-        <vm:MainWindowViewModel />
+        <vm1:ViewModelMainWindow />
     </Window.DataContext>
     <StackPanel Orientation="Vertical">
 
-        <Canvas>
-            <!-- Input number-->
-            <TextBox Canvas.Left="200" Canvas.Top="100" TextAlignment="Left" FontSize="30" Height="60" Width="130" Text="{Binding Text}"/>
+    <Canvas Width="650" Height="850">
+    <Grid>
+        <Button x:Name="startButton" Content="START" Height="50" Width="100" Margin="275,744,275,40" IsEnabled="{Binding State}" Command="{Binding StartButtonClick}" />
+        <Label  Height="50"  Width="240" Margin="205,612,205,172" Content="{Binding ErrorMessage}"/>
+        <TextBox IsEnabled="{Binding State}" Name="intputText" Text="{Binding InputText}" FontSize="30" TextAlignment="Center" Height="50"  Width="240" BorderBrush="Black"  BorderThickness="2" Margin="205,667,205,117"/>
 
-            <!-- Start button-->
-            <Button Canvas.Left="440" Canvas.Top="100" Height="60" Width="130" Content="Start" Command="{Binding StartClick}"/>
+        <Grid x:Name="board" Height="550" Width="550" Margin="25,27,25,207" >
 
-            <!-- Stop button-->
-            <Button Canvas.Right="200" Canvas.Top="100" Height="60" Width="130" Content="Stop" Command="{Binding StopClick}"/>
-
-            <Canvas Canvas.Left="100" Canvas.Top="200" Height='{Binding Height}' Width='{Binding Width}'>
-                <!-- Rectangle-->
-                <Rectangle Canvas.Left="13" Canvas.Top="13" Height='{Binding Height}' Width='{Binding Width}' StrokeThickness="6" Fill="DarkGreen" Stroke="CadetBlue"/>
-
-                <!-- Files -->
-                <ItemsControl ItemsSource="{Binding Balls, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+            <Border BorderBrush="Black" Background="LightGray" BorderThickness="3">
+                <ItemsControl ItemsSource="{Binding Balls}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <Canvas/>
+                            <Canvas Height="550" Width="550" />
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemContainerStyle>
-                        <Style TargetType="ContentPresenter">
-                            <Setter Property="Canvas.Left" Value="{Binding X}"/>
-                            <Setter Property="Canvas.Top" Value="{Binding Y}"/>
-                        </Style>
-                    </ItemsControl.ItemContainerStyle>
+
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <!-- Balls -->
-                            <Ellipse Width="{Binding Diameter}" Height='{Binding Diameter}' StrokeThickness="4" Stroke="MediumVioletRed" Fill="PaleVioletRed"/>
+                                    <Ellipse Width= "{Binding Diameter}" Height="{Binding Diameter}" StrokeThickness="4" Stroke="MediumVioletRed" Fill="PaleVioletRed"/>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
+
+                    <ItemsControl.ItemContainerStyle>
+                        <Style TargetType="ContentPresenter">
+                            <Setter  Property="Canvas.Top" Value="{Binding Left}"/>
+                            <Setter Property="Canvas.Left" Value="{Binding Top}"/>
+                        </Style>
+                    </ItemsControl.ItemContainerStyle>
                 </ItemsControl>
-            </Canvas>
-        </Canvas>
+            </Border>
+        </Grid>
+    </Grid>
+           
+    </Canvas>
     </StackPanel>
 </Window>

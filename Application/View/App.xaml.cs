@@ -1,21 +1,17 @@
-﻿//__________________________________________________________________________________________
-//
-//  Copyright 2022 Mariusz Postol LODZ POLAND.
-//
-//  To be in touch join the community by pressing the `Watch` button and to get started
-//  comment using the discussion panel at
-//  https://github.com/mpostol/TP/discussions/182
-//  with an introduction of yourself and tell us about what you do with this community.
-//__________________________________________________________________________________________
-
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 
-namespace TP.ConcurrentProgramming.PresentationView
+namespace View
 {
-  /// <summary>
-  /// Interaction logic for App.xaml
-  /// </summary>
-  public partial class App : Application
-  {
-  }
+    /// <summary>
+    /// Interaction logic for App.xaml
+    /// </summary>
+    public partial class App : Application
+    {
+    }
 }
