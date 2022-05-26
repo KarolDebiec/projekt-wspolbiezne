@@ -1,11 +1,26 @@
-﻿using System;
-using NUnit.Framework;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Logic;
-using System.Numerics;
 
 namespace LogicTest
 {
-    class LogicApiTest
+    [TestClass]
+    internal class LogicAPITest
     {
+        [TestMethod]
+        public void IsCollisionTest()
+        {
+            LogicAPI logic = LogicAPI.CreateLayer();
+
+            logic.AddBallsAndStart(1);
+
+            Assert.AreEqual(logic.getBallRadius(1), 10);
+        }
+
+
     }
 }

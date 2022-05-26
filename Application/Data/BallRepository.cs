@@ -15,12 +15,16 @@ namespace Data
             balls = new List<Ball>();
         }
 
-        public void CreateBalls(int ballsAmount)
+        public void CreateBalls(int amount)
         {
-            for (int i = 0; i < ballsAmount; i++)
+            for (int i = 0; i < amount; i++)
             {
                 balls.Add(new Ball(i + 1));
             }
+        }
+        public void ClearBalls()
+        {
+            balls.Clear();
         }
 
         public Ball GetBall(int ballId)

@@ -8,21 +8,22 @@
         Title="Kulki Wspolbiezne" 
         Height="1024" 
         Width="1600"
+        Background="DarkGoldenrod"
         >
     <Window.DataContext>
         <vm1:ViewModelMainWindow />
     </Window.DataContext>
     <StackPanel Orientation="Vertical">
 
-    <Canvas Width="650" Height="850">
-    <Grid>
-        <Button x:Name="startButton" Content="START" Height="50" Width="100" Margin="275,744,275,40" IsEnabled="{Binding State}" Command="{Binding StartButtonClick}" />
+        <Canvas Width="650" Height="850">
+        <Grid>
+        <Button x:Name="startButton" Content="Start" Height="50" Width="100" Margin="275,745,275,40" IsEnabled="{Binding State}" Command="{Binding StartButtonClick}" />
         <Label  Height="50"  Width="240" Margin="205,612,205,172" Content="{Binding ErrorMessage}"/>
-        <TextBox IsEnabled="{Binding State}" Name="intputText" Text="{Binding InputText}" FontSize="30" TextAlignment="Center" Height="50"  Width="240" BorderBrush="Black"  BorderThickness="2" Margin="205,667,205,117"/>
+        <TextBox IsEnabled="{Binding State}" Name="intputText" Text="{Binding InputText}" FontSize="30" TextAlignment="Center" Height="50"  Width="240" BorderBrush="Black"  BorderThickness="3" Margin="205,667,205,117"/>
 
         <Grid x:Name="board" Height="550" Width="550" Margin="25,27,25,207" >
 
-            <Border BorderBrush="Black" Background="LightGray" BorderThickness="3">
+            <Border BorderBrush="Black" Background="DarkCyan" BorderThickness="3">
                 <ItemsControl ItemsSource="{Binding Balls}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
