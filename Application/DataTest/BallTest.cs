@@ -9,7 +9,8 @@ namespace DataTest
         [TestMethod]
         public void ChangeBallPosTest()
         {
-            Ball ball = new Ball(1);
+            Logger log = new Logger("LogTest.log");
+            Ball ball = new Ball(1,log);
 
             double positionX = ball.posX;
             double positionY = ball.posY;
@@ -21,7 +22,8 @@ namespace DataTest
         [TestMethod]
         public void RandomPosAndMoveTest()
         {
-            Ball ball = new Ball(1);
+            Logger log = new Logger("LogTest.log");
+            Ball ball = new Ball(1,log);
 
             Assert.IsTrue(ball.posX <= 500 && ball.posX >= 1);
             Assert.IsTrue(ball.posY <= 500 && ball.posY >= 1);

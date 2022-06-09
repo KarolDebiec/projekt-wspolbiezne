@@ -98,8 +98,6 @@ namespace Logic
                             {
                                 if (!collisionControler.IsCollision(otherBallX, otherBallY, otherBallRadius, false))
                                 {
-                                    System.Diagnostics.Trace.WriteLine("Ball " + value + " hit ball " + i);
-
                                     Vector2[] newVelocity = collisionControler.ImpulseSpeed(otherBallX, otherBallY, otherBallSpeedX, otherBallSpeedY, otherBallMass);
 
                                     dataAPI.setBallSpeed(value, newVelocity[0].X , newVelocity[0].Y );

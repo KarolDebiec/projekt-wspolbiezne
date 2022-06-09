@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Threading;
+using System.Numerics;
 using System.Threading.Tasks;
 
 namespace Data
@@ -21,13 +22,19 @@ namespace Data
 
         internal readonly IList<IObserver<int>> observers;
 
+        private Stopwatch Timer = new Stopwatch();
+
+        public Logger logger;
+
         private Task BallThread;
 
-        public Ball(int id)
+        public Ball(int id, Logger log)
         {
             this.Id = id;
 
             Random random = new Random();
+
+            logger = log;
 
             observers = new List<IObserver<int>>();
 
@@ -56,10 +63,12 @@ namespace Data
 
         public void MovingBall()
         {
-            while(true)
+            while (true)
             {
+                Timer.Restart();
+                Timer.Start();
                 MovePos();
-
+                BallLog();
                 foreach (var observer in observers.ToList())
                 {
                     if (observer != null)
@@ -67,7 +76,8 @@ namespace Data
                         observer.OnNext(Id);
                     }
                 }
-                System.Threading.Thread.Sleep(1);
+                System.Threading.Thread.Sleep(5);
+                Timer.Stop();
             }
         }
 
@@ -76,7 +86,10 @@ namespace Data
             posX += offsetX;
             posY += offsetY;
         }
-
+        public void BallLog()
+        {
+            logger.log(this);
+        }
         #region provider
 
         public IDisposable Subscribe(IObserver<int> observer)

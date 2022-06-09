@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using System.Numerics;
 
 namespace Data
 {
@@ -10,6 +11,8 @@ namespace Data
         public List<Ball> balls { get; set; }
         public int BoardSize { get; private set; } = 515;
 
+        private Logger logger;
+
         public BallRepository()
         {
             balls = new List<Ball>();
@@ -17,9 +20,12 @@ namespace Data
 
         public void CreateBalls(int amount)
         {
+            logger = new Logger("Logger.log");
             for (int i = 0; i < amount; i++)
             {
-                balls.Add(new Ball(i + 1));
+                Ball ball = new Ball(i + 1,logger);
+                ball.logger = logger;
+                balls.Add(ball);
             }
         }
         public void ClearBalls()
